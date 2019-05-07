@@ -53,9 +53,9 @@ namespace OpenMEEG {
 
     // how to compare doubles and floats
     template<class T>
-    bool almost_equal(T x, T y, double eps = 1e10) {
-        //return (std::abs(x-y) < std::numeric_limits<T>::epsilon() * std::abs(x+y) * eps) || std::abs(x-y) < std::numeric_limits<T>::min();
-        return std::abs(x-y) < eps ? true : false;
+    bool almost_equal(T x, T y, double eps = 1e3) {
+        return (std::abs(x-y) < std::numeric_limits<T>::epsilon() * std::abs(x+y) * eps) || std::abs(x-y) < std::numeric_limits<T>::min();
+        //return std::abs(x-y) < eps ? true : false;
     }
 }
 

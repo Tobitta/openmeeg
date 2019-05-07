@@ -130,11 +130,11 @@ namespace OpenMEEG {
         }
 
         std::cout << "Entering almost equal." << std::endl;
-        if ( almost_equal(solangle, 0.)) {
+        if ( std::abs(solangle) < 1e-5 ) {
             closed = true;
-        } else if ( almost_equal(solangle, -4.*M_PI) ) {
+        } else if ( std::abs(solangle + 4.*M_PI) < 1e-5 ) {
             closed = true;
-        } else if ( almost_equal(solangle, 4.*M_PI) ) {
+        } else if ( std::abs(solangle - 4.*M_PI) < 1e-5 ) {
             // TODO we still have to reorient the interface, but the code should be able with very little work to
             // be insensitive to global orientation of the interfaces, until that day, we reorient:
             std::cout << "Global reorientation of interface " << name() << std::endl;

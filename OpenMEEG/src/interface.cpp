@@ -129,7 +129,8 @@ namespace OpenMEEG {
             }
         }
 
-        if ( almost_equal(solangle, 0.), 1e-5) {
+        std::cout << "Entering almost equal." << std::endl;
+        if ( almost_equal(solangle, 0.)) {
             closed = true;
         } else if ( almost_equal(solangle, -4.*M_PI) ) {
             closed = true;

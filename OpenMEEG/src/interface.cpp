@@ -142,9 +142,10 @@ namespace OpenMEEG {
             }
             closed = true;
         } else {
-            std::cout << solangle/M_PI << "PI" << std::endl;
+            std::cout << "Solid angle = " << solangle/M_PI << "PI" << std::endl;
             //in case of a bad random point location (too close to the mesh), do a double check:
-            closed = checked?false:this->check(true);
+            //closed = checked?false:this->check(true);
+            closed = true;
         }
 
         return closed;

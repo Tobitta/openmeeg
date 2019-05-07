@@ -131,9 +131,9 @@ namespace OpenMEEG {
 
         if ( almost_equal(solangle, 0.), 1e-5) {
             closed = true;
-        } else if ( almost_equal(solangle, -4.*M_PI), 1e-5) {
+        } else if ( almost_equal(solangle, -4.*M_PI) ) {
             closed = true;
-        } else if ( almost_equal(solangle, 4.*M_PI), 1e-5) {
+        } else if ( almost_equal(solangle, 4.*M_PI) ) {
             // TODO we still have to reorient the interface, but the code should be able with very little work to
             // be insensitive to global orientation of the interfaces, until that day, we reorient:
             std::cout << "Global reorientation of interface " << name() << std::endl;
@@ -144,8 +144,7 @@ namespace OpenMEEG {
         } else {
             std::cout << "Solid angle = " << solangle/M_PI << "PI" << std::endl;
             //in case of a bad random point location (too close to the mesh), do a double check:
-            //closed = checked?false:this->check(true);
-            closed = true;
+            closed = checked?false:this->check(true);
         }
 
         return closed;

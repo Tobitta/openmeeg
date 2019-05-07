@@ -48,11 +48,11 @@ namespace OpenMEEG {
     {
         double solangle = compute_solid_angle(p);
 
-        if ( almost_equal(solangle, 0.) ) {
+        if ( std::abs(solangle) < 1e-5 ) {
             return false;
-        } else if ( almost_equal(solangle, -4.*M_PI) ) {
+        } else if ( std::abs(solangle + 4.*M_PI) < 1e-5 ) {
             return true;
-        } else if ( almost_equal(solangle, 4.*M_PI) ) {
+        } else if ( std::abs(solangle - 4.*M_PI) < 1e-5 ) {
             std::cerr << "Interface::contains_point(" << p << ") Error. This should not happen. Are you sure the mesh is properly oriented ?\n";
             return true;
         } else {
